@@ -1,0 +1,29 @@
+package it.zeion.addresSbook;
+
+import it.zeion.contact.Contact;
+import it.zeion.rubric.Rubric;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Contact con1 = new Contact("Giorgio", "Geronimo", "giorgiogeronimo@mail.com", "3455656575");
+		Contact con2 = new Contact("Buba", "Zerboso", "bubazerboso@mail.com", "3334355445");
+		Contact con3 = new Contact("Michele", "Bisol", "michelebisol@mail.com", "3453463435");
+		
+		Rubric rubric = new Rubric("myRubric");
+		
+		rubric.addContact(con1);
+		System.out.println(rubric);
+		rubric.addContact(con2);
+		System.out.println(rubric);
+		rubric.addContact(con3);
+		
+		System.out.println(rubric);
+		
+		rubric.removeContact(6);
+		
+		
+	}
+
+}

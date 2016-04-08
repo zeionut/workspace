@@ -1,0 +1,64 @@
+package it.zeion.contact;
+
+public class Contact implements Comparable<Contact> {
+	
+	protected String name;
+	protected String surname;
+	protected String mail;
+	protected String telephon;
+	
+	public Contact(String name, String surname, String mail, String telephon) {
+		
+		this.name = name;
+		this.surname = surname;
+		this.mail = mail;
+		this.telephon = telephon;
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getTelephon() {
+		return telephon;
+	}
+
+	public void setTelephon(String telephon) {
+		this.telephon = telephon;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return  surname + " " + name + " " + mail + " " + telephon + "\n";
+		
+	}
+
+	@Override
+	public int compareTo(Contact o) {
+		
+		return this.surname.compareTo(o.getSurname());
+	}
+
+}

@@ -1,0 +1,21 @@
+package it.zeion.schoolClass;
+
+import it.zeion.classroom.Classroom;
+import it.zeion.student.Student;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Student st1 = new Student("Franco", "Cosert", 30);
+		
+		Classroom cla1 = new Classroom("A1");
+		
+		cla1.addStudent(st1);
+		
+		System.out.println(cla1.getStudentList().get(0).getName());
+
+	}
+
+}

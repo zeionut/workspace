@@ -1,0 +1,68 @@
+package it.zeion.student;
+
+public class Student implements Comparable<Student>{
+	
+	static protected int regsterNumber = 0;
+	protected String studentCode;
+	protected String name;
+	protected String surname;
+	protected int age;
+	
+	public Student(String name, String surname, int age) {
+		
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		
+		regsterNumber++;
+		
+		studentCode = name.substring(0, 2) + surname.substring(0, 2) + "00" + String.valueOf(regsterNumber);
+		
+	}	
+
+	public String getStudentCode() {
+		return studentCode;
+	}
+
+	public void setStudentCode(String studentCode) {
+		this.studentCode = studentCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		
+		return this.age - o.age;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return name + " " + surname + " " + String.valueOf(age);
+		
+	}
+
+}

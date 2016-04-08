@@ -1,0 +1,98 @@
+package it.zeion.rubric;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import it.zeion.contact.Contact;
+
+public class Rubric {
+	
+	protected String name;
+	protected List<Contact> contactList;
+	
+	public Rubric(String name) {
+		
+		this.name = name;
+		
+		contactList = new ArrayList<>();
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Contact> getContactList() {
+		return contactList;
+	}
+
+	public void setContactList(List<Contact> contactList) {
+		this.contactList = contactList;
+	}
+	
+	@Override
+	public String toString() {
+		
+		Contact contact;
+		
+		String classroom = "";
+		
+		Iterator<Contact> iter = contactList.iterator();
+		
+		while (iter.hasNext()) {
+			
+			contact = iter.next();
+			
+			classroom += contact.toString() + " ";
+			
+		}
+		
+		return classroom; 
+		
+	}
+	
+	public void addContact(Contact contact) {
+		
+		if (contactList.isEmpty()) {
+			
+			Contact contactTemp;
+			
+			Iterator<Contact> iter = contactList.iterator();
+			
+			System.out.println(0);
+			
+			while (iter.hasNext()) {
+				
+				System.out.println(1);
+				
+				contactTemp = iter.next();
+				
+				if (contactTemp.compareTo(contact) < 1) {
+					
+					int position = contactList.indexOf(contactTemp);
+					
+					contactList.add(position, contact);
+					
+					System.out.println(2);
+					
+				}
+				
+			}
+			
+			
+		}
+		
+		else {
+			
+			contactList.add(contact);
+			
+		}
+		
+	}
+
+}

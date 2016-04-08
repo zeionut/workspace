@@ -1,0 +1,61 @@
+package it.zeion.studen;
+
+public class Studen implements Comparable<Studen>{
+	
+	static protected int regsterNumber = 0;
+	protected String studenCode;
+	protected String name;
+	protected String surname;
+	protected int age;
+	
+	public Studen(String name, String surname, int age) {
+		
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		
+		regsterNumber++;
+		
+		studenCode = name.substring(0, 2) + surname.substring(0, 2) + "00" + String.valueOf(regsterNumber);
+		
+	}	
+
+	public String getStudenCode() {
+		return studenCode;
+	}
+
+	public void setStudenCode(String studenCode) {
+		this.studenCode = studenCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public int compareTo(Studen o) {
+		
+		return this.age + o.age;
+	}
+
+}

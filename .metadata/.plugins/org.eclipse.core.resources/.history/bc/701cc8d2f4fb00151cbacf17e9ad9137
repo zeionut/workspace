@@ -1,0 +1,29 @@
+package it.zeion.studen;
+
+public class Studen implements Comparable<Studen>{
+	
+	static protected int regsterNumber = 0;
+	protected String studenCode;
+	protected String name;
+	protected String surname;
+	protected int age;
+	
+	public Studen(String name, String surname, int age) {
+		
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		
+		regsterNumber++;
+		
+		studenCode = name.substring(0, 2) + surname.substring(0, 2) + "00" + String.valueOf(regsterNumber);
+		
+	}
+
+	@Override
+	public int compareTo(Studen o) {
+		
+		return this.age + o.age;
+	}
+
+}
