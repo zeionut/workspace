@@ -2,8 +2,10 @@ package it.zeion.rubric;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import it.zeion.contact.Contact;
 
@@ -11,12 +13,14 @@ public class Rubric {
 	
 	protected String name;
 	protected List<Contact> contactList;
+	protected Map<String, Contact> contactListMap;
 	
 	public Rubric(String name) {
 		
 		this.name = name;
 		
 		contactList = new ArrayList<>();
+		contactListMap = converToMap();
 		
 	}
 	
@@ -24,6 +28,7 @@ public class Rubric {
 		
 		this.name = name;
 		this.contactList = contactList;
+		contactListMap = converToMap();
 		
 	}
 
@@ -95,6 +100,8 @@ public class Rubric {
 			
 		}
 		
+		contactListMap = converToMap();
+		
 	}
 	
 	public Contact getContact(int i) {
@@ -136,6 +143,34 @@ public class Rubric {
 		Collections.shuffle(newList);
 		
 		return newList;
+		
+	}
+	
+	public Map converToMap() {
+		
+		Map<String, Contact> contactListMap = new HashMap<String, Contact>();
+		
+		Contact contactTemp;
+		
+		Iterator<Contact> iter = contactList.iterator();
+		
+		while (iter.hasNext()) {
+			
+			contactTemp = iter.next();
+			
+			contactListMap.put(contactTemp.getSurname(), contactTemp);
+			
+		}
+		
+		return contactListMap;	
+		
+	}
+	
+	public Contact getContactByMap(String surname) {
+		
+		Contact contactTemp = contactListMap.get(surname);	
+		
+		return contactTemp;
 		
 	}
 

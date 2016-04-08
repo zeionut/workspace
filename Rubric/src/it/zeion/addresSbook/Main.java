@@ -38,6 +38,8 @@ public class Main {
 		
 		System.out.println(rubric2);
 		
+		System.out.println(rubric.getContactByMap("Abaco"));
+		
 	}
 
 }
